@@ -8,7 +8,7 @@ const app = express();
 const port = 3001;
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '../public/build'));
+app.use(express.static(__dirname + '/../public/build'));
 
 
 const messageBaseUrl = '/api/messages';

@@ -18,13 +18,13 @@ module.exports = {
 
     },
     update: (req, res) => {
+        const update = req.body;
         const id = req.params.id;
-        const {update} = req.body;
 
-        const oldMessageIndex = messages.findIndex(m => m.id === id);
+        const oldMessageIndex = messages.findIndex(m => m.id == id);
 
         if(oldMessageIndex === -1){
-            return res.status(404).send('Message of id:' + id + ' could not be found.')};
+            return res.status(404).send( id + ' could not be found.')};
 
         messages[oldMessageIndex] = {
             ...messages[oldMessageIndex],
@@ -34,9 +34,9 @@ module.exports = {
     },
     delete: (req, res) => {
         const id = req.params.id;
-        const messageToDelete = messages.findIndex(m => message.id === id);
+        const messageToDelete = messages.findIndex(m => m.id == id);
 
-        if(oldMessageIndex === -1){
+        if(messageToDelete === -1){
             return res.status(404).send('Message of id:' + id + ' could not be found.')};
         messages.splice(messageToDelete, 1);
 
